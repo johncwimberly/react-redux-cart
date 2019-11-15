@@ -1,0 +1,10 @@
+.todo{
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.delete-icon {
+    /* animation: App-logo-spin infinite 20s linear; */
+    height: 2vmin;
+    margin-left: 10px;
+  }

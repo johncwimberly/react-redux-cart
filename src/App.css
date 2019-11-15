@@ -4,7 +4,7 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 15vmin;
   pointer-events: none;
 }
 
@@ -21,6 +21,35 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  width: 100%;
+  align-content: start;
+}
+
+.column {
+  margin-top: 10px;
+  width: 49%;
+  float: left;
+}
+
+.columnLeft {
+  padding: auto;
+  width: 34%;
+  padding-left: 15%;
+  text-align: left;
+}
+
+.radio > *{
+  display:inline-block;
+  vertical-align:middle;
 }
 
 @keyframes App-logo-spin {
