@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import items from './reducers/itemsReducer';
 import visibility from './reducers/visibilityReducer';
-import TodoCart from './todoCart';
+import TodoList from './todoList';
 
 const store = createStore(combineReducers({items, visibility}))
 
@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   onRadioClick(visibility){
-    console.log("Visibility changing to ", visibility);
     store.dispatch({type: visibility})
   }
 
@@ -26,12 +25,11 @@ class App extends Component {
         <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>Welcome to the Snowman Grocery List</h1>
-          <h3>Please add Items to your cart</h3>
+          <h1>Welcome to the Snowman TODO List</h1>
+          <h3>Please add Items to your todo list</h3>
           <form onSubmit={ (event) => {
                 event.preventDefault()
                 let name = document.getElementById("itemName").value;
-                console.log(name)
                 this.addSpecificItem(name)
               }
             }>
@@ -44,21 +42,23 @@ class App extends Component {
               <h5>Filter</h5>
               <div className='radio'>
                 <input type="radio" id="SHOW_ALL" name="visibility" value="All" onChange={(event) => {this.onRadioClick('SHOW_ALL')}}/>
-                <label for="SHOW_ALL">All</label>
+                <label htmlFor="SHOW_ALL">All</label>
               </div>
               <div className='radio'>
-                <input type="radio" id="show_on_sale" name="visibility" value="On Sale" onChange={(event) => {this.onRadioClick('SHOW_ON_SALE')}}/>
-                <label for="show_on_sale">On Sale</label>
+                <input type="radio" id="show_completed" name="visibility" value="Completed" onChange={(event) => {this.onRadioClick('SHOW_COMPLETED')}}/>
+                <label htmlFor="show_completed">Completed</label>
               </div>
               <div className='radio'>
-                <input type="radio" id="show_not_on_sale" name="visibility" value="Not on Sale" onChange={(event) => {this.onRadioClick('SHOW_NOT_ON_SALE')}}/>
-                <label for="show_not_on_sale">Not on Sale</label>
+                <input type="radio" id="show_in_progress" name="visibility" value="In Progress" onChange={(event) => {this.onRadioClick('SHOW_IN_PROGRESS')}}/>
+                <label htmlFor="show_in_progress">In Progress</label>
               </div>
+
+              
           </div>
         
           <div className="column columnRight">
-            <h5>Cart</h5>
-            <TodoCart />
+            <h5>Todos</h5>
+            <TodoList />
           </div>
         </div>
               

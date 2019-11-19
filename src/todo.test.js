@@ -25,6 +25,12 @@ describe('todo should render', () => {
     let component;
     
     beforeEach(() => {
+        const todo = {
+            id: 1,
+            name: 'buy dog',
+            completed: false
+        };
+        
         store = mockStore({
             items: [],
             visibility: 'SHOW_ALL'
@@ -32,11 +38,7 @@ describe('todo should render', () => {
 
         store.dispatch = jest.fn();
 
-        const todo = {
-            id: 1,
-            name: 'buy dog',
-            onSale: false
-        };
+
 
         component = renderer.create(
             <Provider store={store}>

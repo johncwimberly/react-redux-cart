@@ -3,6 +3,12 @@
     vertical-align:middle;
 }
 
+.todo-strike{
+    display:inline-block;
+    vertical-align:middle;
+    text-decoration: line-through;
+}
+
 .delete-icon {
     /* animation: App-logo-spin infinite 20s linear; */
     height: 2vmin;

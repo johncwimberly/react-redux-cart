@@ -6,7 +6,7 @@ const items = (state = [], action) => {
                 ...state,
                 {
                     name: action.name,
-                    onSale: false,
+                    completed: false,
                     id: state.reduce((highestId, item) => {
                         return (item.id > highestId) ? item.id : highestId;
                     }, 0) + 1
@@ -14,13 +14,13 @@ const items = (state = [], action) => {
             ]
         case 'UPDATE':
             return state.map( item => {
-                if (item.id == action.id) {
-                    item.onSale = action.onSale;
+                if (item.id === action.id) {
+                    item.completed = action.completed;
                 }
                 return item;
             });
         case 'DELETE':
-            return state.filter( item => (item.id != action.id));
+            return state.filter( item => (item.id !== action.id));
         default:
             return state;
     }

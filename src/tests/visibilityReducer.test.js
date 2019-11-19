@@ -6,13 +6,13 @@ describe('Visibility Reducer', () => {
         expect(testState).toBe('SHOW_ALL')
     });
 
-    it('should change to SHOW_ON_SALE when passed SHOW_ON_SALE in action', () => {
-        let testState = visibility(undefined, {type: 'SHOW_ON_SALE'});
-        expect(testState).toBe('SHOW_ON_SALE');
+    it('should change to SHOW_COMPLETED when passed SHOW_COMPLETED in action', () => {
+        let testState = visibility(undefined, {type: 'SHOW_COMPLETED'});
+        expect(testState).toBe('SHOW_COMPLETED');
     });
 
-    it('should change to SHOW_NOT_ON_SALE when passed SHOW_NOT_ON_SALE in action', () => {
-        let testState = visibility(undefined, {type: 'SHOW_NOT_ON_SALE'});
-        expect(testState).toBe('SHOW_NOT_ON_SALE');
+    it('should change to SHOW_IN_PROGRESS when passed SHOW_IN_PROGRESS in action', () => {
+        let testState = visibility(undefined, {type: 'SHOW_IN_PROGRESS'});
+        expect(testState).toBe('SHOW_IN_PROGRESS');
     });
 });

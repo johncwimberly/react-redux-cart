@@ -5,11 +5,11 @@ const addItem = (name) => {
     };
 }
 
-const updateItem = (name, onSale) => {
+const updateItem = (name, completed) => {
     return {
         type: 'UPDATE',
         name,
-        onSale
+        completed
     };
 }
 

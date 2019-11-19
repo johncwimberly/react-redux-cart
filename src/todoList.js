@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Todo from './todo'
-import './todoCart.css';
+import './todoList.css';
 
 function mapStateToProps(state) {
     return state;
 }
-class TodoCart extends Component {
+class TodoList extends Component {
 
     getFilteredListOfTodoComponents( items ) {
         let filteredItems = this.props.items.filter((item) => {
-            if (this.props.visibility == 'SHOW_ALL') {
+            //TODO change on sale stuff to filters
+            if (this.props.visibility === 'SHOW_ALL') {
                 return true;
-            } else if (this.props.visibility == 'SHOW_NOT_ON_SALE' && item.onSale == false) {
+            } else if (this.props.visibility === 'SHOW_IN_PROGRESS' && item.completed === false) {
                 return true;
-            } else if (this.props.visibility == 'SHOW_ON_SALE' && item.onSale == true) {
+            } else if (this.props.visibility === 'SHOW_COMPLETED' && item.completed === true) {
                 return true;
             }
 
@@ -28,11 +29,11 @@ class TodoCart extends Component {
 
     render() {
         return (
-            <div className="todoCart">
+            <div className="todoList">
                 {this.getFilteredListOfTodoComponents()}
             </div>
         )
       }
 }
 
-export default connect(mapStateToProps)(TodoCart);
+export default connect(mapStateToProps)(TodoList);

@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoCart from './todoCart'
+import TodoCart from './todoList'
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import items from './reducers/itemsReducer';
@@ -21,7 +21,7 @@ function setup() {
     };
 }
 
-describe("Cart should be cartlike", () => {
+describe("TODO should be TODO-like", () => {
     let store;
     let component;
     
@@ -40,7 +40,7 @@ describe("Cart should be cartlike", () => {
         );
     });
 
-    it('Cart should have single div with no content on render no state given', () => {
+    it('TODO should have single div with no content on render no state given', () => {
         expect(component.root.findAllByType('div')).toHaveLength(1);
     });
 });
